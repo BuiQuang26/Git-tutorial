@@ -1,0 +1,10 @@
+# GIT TUTORIAL
+## Git add
+## Git remote
+## Git commit 
+## Git revert
+## Git reset
+## Git rebase
+## Git rm
+## Git status
+## Git log 

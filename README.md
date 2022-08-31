@@ -1,8 +1,8 @@
 # GIT TUTORIAL
 
-![enviroment](./git-workflow.jpg)
-
 [Git docs](https://git-scm.com/docs/)
+
+![enviroment](./git-workflow.jpg)
 
 ## Git init
 
@@ -20,11 +20,22 @@ git clone https://github.com/Qaker-VN/Git-tutorial.git
 
 ## Git add
 
-`git add` 
+`git add` thêm nội dung file vào chỉ mục (staging)
+
+```console
+git add .            ## thêm nội dung tất cả các file
+git add <file-path>  ## thêm nội dung của một file
+```
 
 ## Git commit
 
-`Commit lại các thay đổi, lưu vào local repository`
+Tạo một cam kết mới chứa nội dung hiện tại của chỉ mục (nội dung staging chưa được commit) và thông báo nhật ký mô tả các thay đổi.
+
+* `git commit -a` tạo commit cho tất cả nội dung file chưa được commit trong chỉ mục vs show trình edit để viết message cho commit
+* `git commit -m "msg"` tạo commit cho tất cả nội dung file trong chỉ mục chưa được commit kém với message
+* `git commit -C <commit_ID>` tạo commit cho các nội dung file trong chi mục chưa được commit và Lấy message của commit_ID làm message cho commit mới
+* `git commit -c <commit_ID>` Gần giống như -C, tạo commit cho các nội dung trong chi mục chưa commit và lấy message của commit_ID, show trình chỉnh sửa message
+* `git commit --amend` các nội dung file trong chi mục chưa được commit sẽ được gộp chung vào commit cuối cùng trong git tree vs show trình edit để có thể thay đổi lại message. `git commit --amend -m "msg"` thay đổi nhanh message hoặc --no-edit để không show trình edit message và giữ nguyên message cũ  
 
 ## Git remote
 
@@ -103,3 +114,44 @@ git pull origin <name-branch>
 ## Git log
 
 `show commit log`
+
+## Gitignore
+
+## Tip
+
+### Change commit message using `git rebase -i`
+
+* `git log --oneline`
+
+```console
+59cdd77 (HEAD -> master) commit 4
+cef8eac commit 3
+1288a45 commit 2
+a794f7d commit 1
+```
+
+* `git rebase -i HEAD~5` to show editor
+
+```console
+pick 1288a45 commit 2
+pick cef8eac commit 3
+pick 59cdd77 commit 4
+```
+
+* select the commit you want to change the message, use editor to change pick --> reword
+
+```console
+reword 1288a45 commit 2
+pick cef8eac commit 3
+pick 59cdd77 commit 4
+```
+
+* save editor --> new editor
+
+```console
+commit 2 
+
+# Please enter the commit message for your changes. Lines starting
+```
+
+* modify message and save --> change commit message success

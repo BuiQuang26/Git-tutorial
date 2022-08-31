@@ -130,7 +130,7 @@ cef8eac commit 3
 a794f7d commit 1
 ```
 
-* `git rebase -i HEAD~3` to show editor
+* `git rebase -i HEAD~3` auto open editor
 
 ```console
 pick 1288a45 commit 2
@@ -146,7 +146,7 @@ pick cef8eac commit 3
 pick 59cdd77 commit 4
 ```
 
-* save editor --> new editor
+* save editor, auto switch new editor
 
 ```console
 commit 2 

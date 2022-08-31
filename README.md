@@ -3,31 +3,38 @@
 
 [Git docs](https://git-scm.com/docs/)
 
-## Git init
+## git init
 `Khởi tạo một git local repository`
 
-## Git add
+## git add
 `Thêm các thay đổi vào staging`
 
-## Git commit 
+## git commit 
 `Commit lại các thay đổi, lưu vào local repository`
 
-## Git remote
+## git remote
 `Làm việc với remote repository`
 
-## Git revert
+## git push
+`Đẩy code từ local repository lên remote repository`
+
+## git pull
+`Kéo code từ remote repository về local repository`
+
+## git revert
 `Hoàn lại code của commit trước đó, và tạo một commit mới`
 
-## Git reset
+## git reset
 `Xóa một commit`
 
-## Git rebase
+## git rebase
 `Set một nhánh làm nhánh cơ sở (base) cho nhánh muốn rebase`
 
-## Git rm
+## git rm
 `git-rm - Remove files from the working tree and from the index`
-## Git status
+
+## git status
 `git-status - Show the working tree status`
 
-## Git log 
+## git log 
 `show commit log`

@@ -130,7 +130,7 @@ cef8eac commit 3
 a794f7d commit 1
 ```
 
-* `git rebase -i HEAD~5` to show editor
+* `git rebase -i HEAD~3` to show editor
 
 ```console
 pick 1288a45 commit 2

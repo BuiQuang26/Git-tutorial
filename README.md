@@ -2,6 +2,8 @@
 
 [Git docs](https://git-scm.com/docs/)
 
+Git là một hệ thống quản lý phiên bản phân tán (Distributed Version Control System – DVCS), nó là một trong những hệ thống quản lý phiên bản phân tán phổ biến nhất hiện nay. Git cung cấp cho mỗi lập trình viên kho lưu trữ (repository) riêng chứa toàn bộ lịch sử thay đổi.
+
 ![enviroment](./git-workflow.jpg)
 
 ## Git init
@@ -39,7 +41,16 @@ Tạo một cam kết mới chứa nội dung hiện tại của chỉ mục (n�
 
 ## Git remote
 
-`Làm việc với remote repository`
+[git-docs](https://git-scm.com/docs/git-remote)
+
+Manage the set of repositories ("remotes") whose branches you track.
+
+* `git remote -v` : show tên và url của các remote repository
+* `git remote add <name> <url>` : thêm remote repository
+* `git remote remove <name>` : xóa remote repository
+* `git remote set-url <name> <newUrl>` : thay đổi url của remote repository
+
+> `git remote -h` để xem thêm options
 
 ## Git push
 

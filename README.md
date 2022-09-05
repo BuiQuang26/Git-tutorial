@@ -16,7 +16,7 @@ Git là một hệ thống quản lý phiên bản phân tán (Distributed Versi
 
 * Sao chép một remote repo:
   
-```console
+```text
 git clone https://github.com/Qaker-VN/Git-tutorial.git
 ```
 
@@ -24,7 +24,7 @@ git clone https://github.com/Qaker-VN/Git-tutorial.git
 
 `git add` thêm nội dung file vào chỉ mục (staging)
 
-```console
+```text
 git add .            ## thêm nội dung tất cả các file
 git add <file-path>  ## thêm nội dung của một file
 ```
@@ -41,8 +41,6 @@ Tạo một cam kết mới chứa nội dung hiện tại của chỉ mục (n�
 
 ## Git remote
 
-[git-docs](https://git-scm.com/docs/git-remote)
-
 Manage the set of repositories ("remotes") whose branches you track.
 
 * `git remote -v` : show tên và url của các remote repository
@@ -50,41 +48,30 @@ Manage the set of repositories ("remotes") whose branches you track.
 * `git remote remove <name>` : xóa remote repository
 * `git remote set-url <name> <newUrl>` : thay đổi url của remote repository
 
-> `git remote -h` để xem thêm options
+> `git remote -h` xem thêm options
 
 ## Git push
 
-`Đẩy code từ local repository lên remote repository`
+Cập nhật code từ local repo lên remote repo
+
+* `git push origin master` : cấp nhật nội dung ở local repo lên nhánh master của remote repo
+* `git push -f origin master` : ép nhánh master trên remote repo phải overwrite nhánh trên local (không nên sử dung khi không hiểu rõ bạn đang làm gì vì ở đây -f --force sẽ ghi đè lại hết lịch sử của local repo lên remote repo)
+
+> `git push -h` xem thêm options
 
 ## Git fetch
 
 Lệnh git fetch tải về dữ liệu từ Remote Repo (kho chứa từ xa - trên server/dịch vụ lưu repo, các dữ liệu như các commit, các file, refs). Các dữ liệu này được lấy về và nó lưu vào kho chứa local (trong Repository - thư mục .git), nó không tác động gì đến thư mục đang làm việc (Working Directory - Workspace). Bạn dùng git fetch khi cần lấy dữ liệu từ remote để lưu trữ, theo dõi các commit người khác đã cập nhật lên server, để có được thông thông tin khác nhau giữa remote và local mà không ảnh hưởng đến luồng công việc bạn đang thực hiện
 
-* Kho chứa của bạn tên origin, tải về tất cả thông tin của nó từ remote:
+* `git fetch origin` Kho chứa của bạn tên origin, tải về tất cả thông tin của nó từ remote hoặc `git fetch all`
 
-```console
-git fetch origin
-```
-
-* hoặc
-
-```console
-git fetch all
-```
-
-* Tải về thông tin của một nhánh cụ thể từ remote repo:
-
-```console
-git fetch origin master
-```
+* `git fetch origin master` Tải về thông tin của một nhánh cụ thể từ remote repo:
 
 Sau khi tải về, để có thể khám phá sự khác biệt giữa local và remote bạn có thể xem trạng thái của thư mục làm việc, xem log của một nhánh local và log của nhánh remote ...
 
-```console
-git log --oneline origin/master # xem log nhánh master của remote origin
-git log --oneline master        # xem log nhánh master của local origin
-git status                      # xem log nhánh master của local origin
-```
+* `git log --oneline origin/master` xem log nhánh master của remote origin
+* `git log --oneline master`        xem log nhánh master của local origin
+* `git status`                      xem log nhánh master của local origin
 
 ## Git pull
 
@@ -92,19 +79,31 @@ Lệnh `git pull` lấy về thông tin từ remote và cập nhật vào các n
 
 * Khó chứa remote của bạn tên origin, Kéo code từ remote repo về local repo
 
-```console
+```text
 git pull origin
 ```
 
 * hoặc chỉ cụ thể tên branch
 
-```console
+```text
 git pull origin <name-branch>
 ```
 
+## Git merge
+
 ## Git revert
 
-`Hoàn lại code của commit trước đó, và tạo một commit mới`
+Hoàn nguyên một số cam kết hiện có và tạo một commit mới
+
+Flow:
+
+* `git revert <commitID>` hoan nguyen noi dung cam ket truoc cua commitID, vao che do revert
+* Sua cac file conlit bang tay va `git add .` add vao staging
+* `git revert --continue` create new commit
+
+> `git revert --abort` cancel revert
+>
+> `git revert -h` view more options
 
 ## Git reset
 
@@ -126,7 +125,9 @@ git pull origin <name-branch>
 
 `show commit log`
 
-## Gitignore
+## .gitignore
+
+---
 
 ## Tip
 
@@ -134,7 +135,7 @@ git pull origin <name-branch>
 
 * `git log --oneline`
 
-```console
+```text
 59cdd77 (HEAD -> master) commit 4
 cef8eac commit 3
 1288a45 commit 2
@@ -143,7 +144,7 @@ a794f7d commit 1
 
 * `git rebase -i HEAD~3` auto open editor
 
-```console
+```text
 pick 1288a45 commit 2
 pick cef8eac commit 3
 pick 59cdd77 commit 4
@@ -151,7 +152,7 @@ pick 59cdd77 commit 4
 
 * select the commit you want to change the message, use editor to change pick --> reword
 
-```console
+```text
 reword 1288a45 commit 2
 pick cef8eac commit 3
 pick 59cdd77 commit 4
@@ -159,7 +160,7 @@ pick 59cdd77 commit 4
 
 * save editor, auto switch new editor
 
-```console
+```text
 commit 2 
 
 # Please enter the commit message for your changes. Lines starting

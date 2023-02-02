@@ -153,6 +153,16 @@ Flow:
 
 ## Tip
 
+### discard unstaged changes in Git
+For all unstaged files in current working directory use:
+```text
+git restore .
+```
+For a specific file use:
+```text
+git restore path/to/file/to/revert
+```
+
 ### Change commit message using `git rebase -i`
 
 * `git log --oneline`
